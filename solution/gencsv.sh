@@ -8,7 +8,7 @@ fi
 
 start=$1
 end=$2
-output_file="inputFile"
+output_file="inputdata"
 
 # Overwrite the file (or create if it doesn't exist)
 > $output_file

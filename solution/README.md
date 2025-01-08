@@ -30,3 +30,32 @@ This creates an input file named inputFile with the following content:
     Run the csvserver container with the input file and set the environment variable CSVSERVER_BORDER:
 
      docker run -d -p 9393:9300 -e CSVSERVER_BORDER=Orange -v $(pwd)/inputFile:/csvserver/inputdata infracloudio/csvserver:latest
+
+3.	Access the Application
+
+   Open the application in your browser at http://localhost:9393. The application should display the data with an orange border.
+
+4.	Capture the Output
+
+   Save the raw data from the application using curl or wget:
+
+   curl -o ./part-1-output http://localhost:9393/raw
+
+   Alternatively:
+
+   wget -O ./part-1-output http://localhost:9393/raw
+
+5.	Save the Container Logs
+    
+    Save the container logs to a file named part-1-logs:
+
+    docker logs  164f50d51fe0  >& part-1-logs 
+
+2. Save the Docker Run Command
+
+Create a file named part-1-cmd and save the docker run command used in Step 2:
+
+        echo "docker run -d -p 9393:9300 -e CSVSERVER_BORDER=Orange -v $(pwd)/inputFile:/csvserver/inputdata infracloudio/csvserver:latest" > part-1-cmd
+
+
+
