@@ -11,3 +11,12 @@ services:
       - ./csvserver.env  # Explicitly load the .env file
     volumes:
       - ${PWD}/inputData:/csvserver/inputdata  # Mount the inputData directory correctly
+  prometheus:
+    image: prom/prometheus:v2.45.2
+    container_name: prometheus
+    ports:
+      - "9090:9090"  # Expose Prometheus on port 9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Mount custom Prometheus config
+    environment:
+      - PROMETHEUS_CONFIG_PATH=/etc/prometheus/prometheus.yml

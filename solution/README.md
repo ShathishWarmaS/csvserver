@@ -57,5 +57,16 @@ Create a file named part-1-cmd and save the docker run command used in Step 2:
 
         echo "docker run -d -p 9393:9300 -e CSVSERVER_BORDER=Orange -v $(pwd)/inputFile:/csvserver/inputdata infracloudio/csvserver:latest" > part-1-cmd
 
+# CSVServer Solution - Part II
+
+1. **Create a docker-compose.yaml file for the setup from part I.**
+    Use an environment variable file named csvserver.env in docker-compose.yaml to pass environment variables used in part I.
+
+    One should be able to run the application with docker-compose up.
+
+# CSVServer Solution - Part III
+
+1. **Add Prometheus container (prom/prometheus:v2.45.2) to the docker-compose.yaml form part II.**
+
 
 
